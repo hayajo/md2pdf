@@ -1,16 +1,16 @@
 md2pdf
 ======
 
-Convert markdown to pdf
+Convert a Markdown to PDF.
 
 ## Usage
 
-```
-$ go get github.com/russross/blackfriday
-$ go build -o md2pdf *.go
-$ vagrant up
-$ vagrant ssh -c "cd /vagrant && ./md2pdf --css=example/markdown.css example/golang.md golang.pdf"
-```
+    $ go get github.com/hayajo/md2pdf
+    $ md2pdf --css=main.css target.md output.pdf
+
+## Requires
+
+[wkhtmltopdf/wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf)
 
 ## See Also
 

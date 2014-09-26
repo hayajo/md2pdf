@@ -9,8 +9,6 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
-
-	"./converter"
 )
 
 func init() {
@@ -53,7 +51,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	md := converter.NewMarkdown(text)
+	md := NewMarkdown(text)
 
 	opts := []string{"--print-media-type"}
 	if *css != "" {

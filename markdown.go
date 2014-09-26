@@ -1,4 +1,4 @@
-package converter
+package main
 
 import "github.com/russross/blackfriday"
 
@@ -13,7 +13,6 @@ func NewMarkdown(text []byte) *Markdown {
 func (md *Markdown) ToHtml(title string, enableExtensions bool) []byte {
 	htmlFlags := 0
 	htmlFlags |= blackfriday.HTML_COMPLETE_PAGE
-	htmlFlags |= blackfriday.HTML_GITHUB_BLOCKCODE
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_FRACTIONS
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
 	htmlFlags |= blackfriday.HTML_USE_SMARTYPANTS

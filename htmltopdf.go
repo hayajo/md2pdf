@@ -1,4 +1,4 @@
-package converter
+package main
 
 import (
 	"errors"
@@ -6,8 +6,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"strings"
-)
+	"strings")
 
 const wkhtmltopdfCmd = "wkhtmltopdf"
 
@@ -45,6 +44,7 @@ func HtmlToPdf(html []byte, outfile string, opts ...string) error {
 	if err != nil {
 		logger := log.New(os.Stderr, log.Prefix(), log.Flags())
 		logger.Println(cmd.Args)
+		logger.Println(err)
 		return errors.New(string(output))
 	}
 
