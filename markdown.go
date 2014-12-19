@@ -17,18 +17,21 @@ func (md *Markdown) ToHtml(title string, enableExtensions bool) []byte {
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
 	htmlFlags |= blackfriday.HTML_USE_SMARTYPANTS
 	htmlFlags |= blackfriday.HTML_USE_XHTML
+
 	renderer := blackfriday.HtmlRenderer(htmlFlags, title, "")
 
 	extensions := 0
 	if enableExtensions {
 		extensions |= blackfriday.EXTENSION_AUTOLINK
 		extensions |= blackfriday.EXTENSION_FENCED_CODE
+		extensions |= blackfriday.EXTENSION_HARD_LINE_BREAK
 		extensions |= blackfriday.EXTENSION_HEADER_IDS
 		extensions |= blackfriday.EXTENSION_NO_INTRA_EMPHASIS
 		extensions |= blackfriday.EXTENSION_SPACE_HEADERS
 		extensions |= blackfriday.EXTENSION_STRIKETHROUGH
 		extensions |= blackfriday.EXTENSION_TABLES
 	}
+
 	return blackfriday.Markdown(md.text, renderer, extensions)
 }
 
