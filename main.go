@@ -23,6 +23,7 @@ func main() {
 	var (
 		css   = flag.String("css", "", "css file")
 		title = flag.String("title", "md2pdf", "document title")
+		html  = flag.Bool("html", false, "convert html only")
 	)
 	flag.Parse()
 
@@ -64,6 +65,12 @@ func main() {
 			cssUrl = u.String()
 		}
 		opts = append(opts, "--user-style-sheet", filepath.ToSlash(cssUrl))
+	}
+
+	if *html {
+		h := md.ToHtml(*title, true)
+		ioutil.WriteFile(out, h, 0644)
+		return
 	}
 
 	err = md.ToPdf(out, *title, opts...)
