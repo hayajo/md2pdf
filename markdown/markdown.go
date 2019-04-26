@@ -1,6 +1,9 @@
-package main
+package markdown
 
-import "github.com/russross/blackfriday"
+import (
+	"github.com/TheL1ne/md2pdf/htmltopdf"
+	"github.com/russross/blackfriday"
+)
 
 type Markdown struct {
 	text []byte
@@ -37,5 +40,5 @@ func (md *Markdown) ToHtml(title string, enableExtensions bool) []byte {
 
 func (md *Markdown) ToPdf(outfile, title string, opts ...string) error {
 	html := md.ToHtml(title, true)
-	return HtmlToPdf(html, outfile, opts...)
+	return htmltopdf.HtmlToPdf(html, outfile, opts...)
 }
