@@ -9,6 +9,8 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+
+	"github.com/TheL1ne/md2pdf/markdown"
 )
 
 func init() {
@@ -52,7 +54,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	md := NewMarkdown(text)
+	md := markdown.NewMarkdown(text)
 
 	opts := []string{"--print-media-type"}
 	if *css != "" {

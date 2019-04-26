@@ -1,4 +1,4 @@
-package main
+package htmltopdf
 
 import (
 	"errors"
@@ -6,7 +6,8 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"strings")
+	"strings"
+)
 
 const wkhtmltopdfCmd = "wkhtmltopdf"
 
